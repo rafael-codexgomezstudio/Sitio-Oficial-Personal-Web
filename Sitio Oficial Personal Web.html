@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Codex Gómez Studio | Páginas web para negocios locales</title>
+<meta name="description" content="Páginas web, menús digitales con QR y presencia en internet para negocios de Jalisco. Cotiza por WhatsApp sin compromiso.">
+<style>
+  :root {
+    --azul: #0b1d3a;
+    --azul2: #12305f;
+    --naranja: #ff7a1a;
+    --claro: #f4f7fb;
+    --texto: #1c2430;
+    --gris: #5b6675;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Segoe UI', Arial, Helvetica, sans-serif; color: var(--texto); line-height: 1.6; background: #fff; }
+  a { color: inherit; }
+  .wrap { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+
+  /* NAV */
+  nav { background: var(--azul); position: sticky; top: 0; z-index: 10; }
+  nav .wrap { display: flex; justify-content: space-between; align-items: center; height: 58px; }
+  .logo { color: #fff; font-weight: 800; letter-spacing: .5px; text-decoration: none; }
+  .logo span { color: var(--naranja); }
+  nav a.cta-nav { background: var(--naranja); color: #fff; text-decoration: none; font-weight: 700; padding: 8px 16px; border-radius: 30px; font-size: .9rem; }
+
+  /* HERO */
+  .hero { background: linear-gradient(160deg, var(--azul), var(--azul2)); color: #fff; padding: 70px 0 80px; text-align: center; }
+  .hero h1 { font-size: 2.1rem; line-height: 1.2; margin-bottom: 14px; }
+  .hero h1 span { color: var(--naranja); }
+  .hero p { font-size: 1.1rem; max-width: 560px; margin: 0 auto 28px; opacity: .92; }
+  .btn { display: inline-block; background: var(--naranja); color: #fff; text-decoration: none; font-weight: 700; padding: 15px 30px; border-radius: 50px; font-size: 1.05rem; box-shadow: 0 6px 16px rgba(255,122,26,.35); }
+  .btn.verde { background: #25d366; box-shadow: 0 6px 16px rgba(37,211,102,.35); }
+  .btn.sec { background: transparent; border: 2px solid #fff; box-shadow: none; margin-left: 8px; }
+  .hero .btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  .hero .btn.sec { margin-left: 0; }
+
+  section { padding: 60px 0; }
+  section.gris { background: var(--claro); }
+  h2 { font-size: 1.7rem; text-align: center; color: var(--azul); margin-bottom: 8px; }
+  .sub { text-align: center; color: var(--gris); margin-bottom: 36px; }
+
+  /* GRID */
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px; }
+  .card { background: #fff; border-radius: 14px; padding: 24px; box-shadow: 0 3px 14px rgba(11,29,58,.08); }
+  section.gris .card { box-shadow: 0 3px 14px rgba(11,29,58,.07); }
+  .card .ic { font-size: 2rem; margin-bottom: 8px; }
+  .card h3 { color: var(--azul); margin-bottom: 6px; }
+  .card p { color: var(--gris); font-size: .97rem; }
+
+  /* PRECIOS */
+  .precio-card { text-align: center; position: relative; }
+  .precio-card .monto { font-size: 2rem; font-weight: 800; color: var(--naranja); margin: 6px 0; }
+  .precio-card .monto small { font-size: .9rem; color: var(--gris); font-weight: 400; }
+  .precio-card ul { list-style: none; text-align: left; margin: 14px 0 18px; }
+  .precio-card li { padding: 5px 0; font-size: .95rem; color: var(--texto); }
+  .precio-card li::before { content: "✓ "; color: #25d366; font-weight: 700; }
+  .destacado { border: 2px solid var(--naranja); }
+  .etiqueta { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--naranja); color: #fff; font-size: .75rem; font-weight: 700; padding: 3px 14px; border-radius: 20px; }
+  .precio-card .btn { padding: 11px 24px; font-size: .95rem; }
+  .nota { text-align: center; color: var(--gris); font-size: .9rem; margin-top: 22px; }
+
+  /* PASOS */
+  .paso { text-align: center; }
+  .num { width: 46px; height: 46px; border-radius: 50%; background: var(--azul); color: #fff; font-weight: 800; font-size: 1.2rem; display: flex; align-items: center; justify-content: center; margin: 0 auto 12px; }
+
+  /* DEMOS */
+  .demo-link { display: block; text-decoration: none; }
+  .demo-link .card { transition: transform .15s; }
+  .demo-link .card:hover { transform: translateY(-4px); }
+  .demo-link .ver { color: var(--naranja); font-weight: 700; font-size: .95rem; margin-top: 10px; display: inline-block; }
+
+  /* FAQ */
+  details { background: #fff; border-radius: 12px; padding: 16px 20px; margin-bottom: 10px; box-shadow: 0 2px 10px rgba(11,29,58,.07); }
+  summary { cursor: pointer; font-weight: 700; color: var(--azul); }
+  details p { margin-top: 10px; color: var(--gris); }
+
+  /* CONTACTO */
+  .contacto { background: linear-gradient(160deg, var(--azul), var(--azul2)); color: #fff; text-align: center; }
+  .contacto h2 { color: #fff; }
+  .contacto .sub { color: #cfd9ea; }
+  .contacto .datos { margin-top: 22px; color: #cfd9ea; font-size: .95rem; }
+
+  footer { background: #07142a; color: #8fa0bb; text-align: center; padding: 22px 20px; font-size: .85rem; }
+
+  .flotante { position: fixed; right: 16px; bottom: 16px; background: #25d366; color: #fff; text-decoration: none; padding: 14px 18px; border-radius: 50px; font-weight: 700; box-shadow: 0 4px 14px rgba(0,0,0,.3); z-index: 20; }
+
+  @media (min-width: 700px) { .hero h1 { font-size: 3rem; } .hero { padding: 100px 0 110px; } }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="logo" href="#">CODEX <span>GÓMEZ</span> STUDIO</a>
+    <a class="cta-nav" href="#contacto">Cotizar</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <h1>Haz que tu negocio sea <span>visible en internet</span></h1>
+    <p>Creamos tu página web, tu menú digital con código QR y tu botón de WhatsApp, para que tus clientes te encuentren y te escriban directo.</p>
+    <div class="btns">
+      <a class="btn verde" href="https://wa.me/523317183825?text=Hola,%20quiero%20cotizar%20una%20p%C3%A1gina%20para%20mi%20negocio" target="_blank">📲 Cotizar por WhatsApp</a>
+      <a class="btn sec" href="#demos">Ver ejemplos</a>
+    </div>
+  </div>
+</header>
+
+<section id="servicios">
+  <div class="wrap">
+    <h2>¿Qué hacemos?</h2>
+    <p class="sub">Todo lo que tu negocio necesita para aparecer en internet, sin complicaciones.</p>
+    <div class="grid">
+      <div class="card"><div class="ic">🌐</div><h3>Páginas web</h3><p>Una página profesional con tu información, fotos, horarios y ubicación. Se ve bien en celular.</p></div>
+      <div class="card"><div class="ic">📋</div><h3>Menú digital con QR</h3><p>Tus clientes escanean el código y ven tu menú o catálogo al instante. Ideal para restaurantes y cafés.</p></div>
+      <div class="card"><div class="ic">💬</div><h3>Botón de WhatsApp</h3><p>Tus clientes te piden o agendan con un solo toque, con el mensaje ya escrito.</p></div>
+      <div class="card"><div class="ic">📍</div><h3>Aparece en Google</h3><p>Ayudamos a que tu negocio se encuentre cuando alguien busca lo que vendes en tu zona.</p></div>
+      <div class="card"><div class="ic">🗺️</div><h3>Google Maps y perfil de negocio</h3><p>Creamos o arreglamos tu ficha en Google Maps con horarios, fotos y teléfono, para que te encuentren y lleguen.</p></div>
+      <div class="card"><div class="ic">🛍️</div><h3>Catálogo de productos</h3><p>Muestra tus productos con fotos y precios, y que tus clientes hagan su pedido por WhatsApp con un toque.</p></div>
+      <div class="card"><div class="ic">📅</div><h3>Citas y reservaciones</h3><p>Un formulario para que tus clientes agenden su cita o reserven, y tú recibes el aviso directo en tu celular.</p></div>
+      <div class="card"><div class="ic">🖼️</div><h3>Galería de trabajos</h3><p>Muestra tus mejores trabajos, platillos o servicios con fotos ordenadas. Lo que se ve, se vende.</p></div>
+      <div class="card"><div class="ic">🪪</div><h3>Tarjeta digital</h3><p>Una mini página con todos tus enlaces (WhatsApp, Facebook, ubicación, menú) y un QR para compartirla.</p></div>
+      <div class="card"><div class="ic">🎨</div><h3>Logotipo e imagen de marca</h3><p>Un logo sencillo y profesional, con colores y letra para que tu negocio se vea ordenado en todos lados.</p></div>
+      <div class="card"><div class="ic">📣</div><h3>Publicaciones para redes</h3><p>Flyers, promociones y publicaciones listas para Facebook e Instagram, con el diseño de tu negocio.</p></div>
+      <div class="card"><div class="ic">🎉</div><h3>Páginas de promoción o evento</h3><p>Una página rápida para una oferta, inauguración, fiesta o temporada. Lista en pocos días.</p></div>
+      <div class="card"><div class="ic">🔧</div><h3>Rediseño de tu página actual</h3><p>¿Ya tienes página pero se ve vieja o no abre bien en celular? La renovamos y la dejamos moderna.</p></div>
+      <div class="card"><div class="ic">💌</div><h3>Invitaciones digitales</h3><p>Para bodas, XV años, bautizos y cumpleaños, con mapa, fecha y confirmación de asistencia por WhatsApp.</p></div>
+      <div class="card"><div class="ic">👤</div><h3>Portafolio y CV web</h3><p>Para profesionistas, estudiantes y freelancers: una página que muestre quién eres y qué sabes hacer.</p></div>
+      <div class="card"><div class="ic">⚙️</div><h3>Configuración de WhatsApp Business</h3><p>Perfil de empresa, catálogo, mensajes de bienvenida y respuestas rápidas, para que atiendas más ordenado.</p></div>
+      <div class="card"><div class="ic">📊</div><h3>Hojas de control</h3><p>Inventario, ventas, gastos o lista de clientes en hojas de cálculo sencillas, listas para usarse.</p></div>
+      <div class="card"><div class="ic">🔳</div><h3>Códigos QR a la medida</h3><p>QR para tu menú, tus redes, tu ubicación o tu WhatsApp, listos para imprimir en mesas, lonas o tarjetas.</p></div>
+      <div class="card"><div class="ic">📸</div><h3>Edición de fotos de productos</h3><p>Arreglamos tus fotos: fondo limpio, buena luz y tamaño correcto para tu página y tus redes.</p></div>
+      <div class="card"><div class="ic">📝</div><h3>Formularios en línea</h3><p>Pedidos, encuestas, registros o inscripciones con formulario, y las respuestas llegan ordenadas.</p></div>
+      <div class="card"><div class="ic">🏫</div><h3>Páginas para escuelas y grupos</h3><p>Equipos deportivos, asociaciones, iglesias, eventos escolares o proyectos: su información en un solo lugar.</p></div>
+      <div class="card"><div class="ic">🗓️</div><h3>Calendario de contenido</h3><p>Un plan de publicaciones para tu mes, con ideas y textos, para que no te quedes sin saber qué subir.</p></div>
+      <div class="card"><div class="ic">🪧</div><h3>Tarjetas, lonas y volantes</h3><p>Diseño listo para imprimir de tarjetas de presentación, lonas y volantes con la imagen de tu negocio.</p></div>
+      <div class="card"><div class="ic">🛒</div><h3>Mini tienda con carrito</h3><p>Tus clientes eligen productos, arman su carrito y el pedido te llega completo por WhatsApp.</p></div>
+      <div class="card"><div class="ic">🧮</div><h3>Cotizador en línea</h3><p>Una calculadora en tu página: el cliente elige lo que necesita y ve el precio al instante.</p></div>
+      <div class="card"><div class="ic">⭐</div><h3>Sección de reseñas</h3><p>Muestra las opiniones reales de tus clientes en tu página para generar confianza.</p></div>
+      <div class="card"><div class="ic">🏨</div><h3>Páginas para hospedaje y turismo</h3><p>Cabañas, hoteles, salones y espacios en renta, con fotos, precios y disponibilidad por WhatsApp.</p></div>
+      <div class="card"><div class="ic">🩺</div><h3>Páginas para consultorios y profesionistas</h3><p>Dentistas, abogados, psicólogos, contadores y más: servicios, horarios, ubicación y contacto.</p></div>
+      <div class="card"><div class="ic">🔨</div><h3>Páginas para oficios y servicios a domicilio</h3><p>Plomeros, electricistas, mecánicos y técnicos: que te encuentren y te llamen cuando te necesiten.</p></div>
+      <div class="card"><div class="ic">🌎</div><h3>Páginas en español e inglés</h3><p>Ideal si atiendes turistas o clientes de otros lugares: tu página en dos idiomas.</p></div>
+      <div class="card"><div class="ic">⏳</div><h3>Promociones con cuenta regresiva</h3><p>Una oferta con contador de tiempo para crear urgencia en fechas especiales y temporadas.</p></div>
+      <div class="card"><div class="ic">📈</div><h3>Estadísticas de visitas</h3><p>Te mostramos cuánta gente visita tu página y de dónde llega, para tomar mejores decisiones.</p></div>
+      <div class="card"><div class="ic">🚀</div><h3>Mejora de velocidad y celular</h3><p>Hacemos que tu página actual cargue rápido y se vea bien en cualquier pantalla.</p></div>
+      <div class="card"><div class="ic">🌍</div><h3>Dominio propio y correo del negocio</h3><p>Te asesoramos para tener tu dirección .com y correo profesional (el dominio lo paga el cliente).</p></div>
+      <div class="card"><div class="ic">✍️</div><h3>Redacción de textos</h3><p>Descripciones, biografías y mensajes claros y atractivos para tu página y tus redes.</p></div>
+      <div class="card"><div class="ic">🎬</div><h3>Edición de videos cortos</h3><p>Videos para Reels, TikTok y Facebook con tus fotos y clips: música, texto y formato correcto.</p></div>
+      <div class="card"><div class="ic">📑</div><h3>Presentaciones para tu negocio</h3><p>Presentaciones con buen diseño para vender, proponer o explicar lo que haces.</p></div>
+      <div class="card"><div class="ic">🧾</div><h3>Cotizaciones y recibos con tu logo</h3><p>Formatos profesionales de cotización y recibo, listos para llenar y mandar por WhatsApp.</p></div>
+      <div class="card"><div class="ic">📄</div><h3>Menú o catálogo en PDF</h3><p>Tu menú o catálogo en PDF con buen diseño, listo para compartir o imprimir.</p></div>
+      <div class="card"><div class="ic">🎓</div><h3>Clases de programación e informática</h3><p>Asesorías en Java, HTML y fundamentos de programación para estudiantes que quieren aprender.</p></div>
+      <div class="card"><div class="ic">💻</div><h3>Soporte técnico básico</h3><p>Formateo, instalación de programas, limpieza y configuración de tu computadora o celular.</p></div>
+      <div class="card"><div class="ic">📲</div><h3>Capacitación en redes y WhatsApp</h3><p>Te enseñamos a usar Facebook, Instagram y WhatsApp Business para promocionar tu negocio.</p></div>
+      <div class="card"><div class="ic">🤝</div><h3>Páginas para causas y colectas</h3><p>Información clara para campañas, apoyos y eventos benéficos, con datos de contacto y cómo ayudar.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="gris" id="demos">
+  <div class="wrap">
+    <h2>Ejemplos de nuestro trabajo</h2>
+    <p class="sub">Así se vería la página de tu negocio. Toca para verlas en vivo.</p>
+    <div class="grid">
+      <!-- CAMBIA: TUUSUARIO por tu usuario de GitHub -->
+      <a class="demo-link" href="https://TUUSUARIO.github.io/demo-taqueria/" target="_blank">
+        <div class="card"><div class="ic">🌮</div><h3>Taquería</h3><p>Menú con precios, horario, mapa y pedidos por WhatsApp.</p><span class="ver">Ver demo →</span></div>
+      </a>
+      <a class="demo-link" href="https://TUUSUARIO.github.io/demo-taqueria/estetica.html" target="_blank">
+        <div class="card"><div class="ic">💇‍♀️</div><h3>Estética</h3><p>Servicios, precios y citas directo por WhatsApp.</p><span class="ver">Ver demo →</span></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="precios">
+  <div class="wrap">
+    <h2>Precios claros</h2>
+    <p class="sub">Sin letras chiquitas. Pagas la mitad para empezar y la otra mitad al entregar.</p>
+    <div class="grid">
+      <div class="card precio-card">
+        <h3>Menú QR</h3>
+        <div class="monto">$500 <small>MXN</small></div>
+        <ul>
+          <li>Menú o catálogo digital</li>
+          <li>Código QR para imprimir</li>
+          <li>Botón de WhatsApp</li>
+        </ul>
+        <a class="btn" href="https://wa.me/523317183825?text=Hola,%20me%20interesa%20el%20Men%C3%BA%20QR" target="_blank">Lo quiero</a>
+      </div>
+      <div class="card precio-card destacado">
+        <span class="etiqueta">MÁS ELEGIDO</span>
+        <h3>Página web</h3>
+        <div class="monto">$900 <small>MXN</small></div>
+        <ul>
+          <li>Página de una sección completa</li>
+          <li>Fotos, horarios y mapa</li>
+          <li>Botón de WhatsApp</li>
+          <li>Publicada en internet</li>
+        </ul>
+        <a class="btn" href="https://wa.me/523317183825?text=Hola,%20me%20interesa%20la%20P%C3%A1gina%20web" target="_blank">La quiero</a>
+      </div>
+      <div class="card precio-card">
+        <h3>Mantenimiento</h3>
+        <div class="monto">$150 <small>MXN / mes</small></div>
+        <ul>
+          <li>Cambios de precios y fotos</li>
+          <li>Actualización de horarios</li>
+          <li>Soporte por WhatsApp</li>
+        </ul>
+        <a class="btn" href="https://wa.me/523317183825?text=Hola,%20me%20interesa%20el%20mantenimiento%20mensual" target="_blank">Me interesa</a>
+      </div>
+    </div>
+    <p class="nota">Precios de lanzamiento. Catálogos, citas, logotipos, publicaciones y los demás servicios se cotizan según lo que necesites: escríbenos y te damos precio sin compromiso.</p>
+  </div>
+</section>
+
+<section class="gris">
+  <div class="wrap">
+    <h2>¿Cómo trabajamos?</h2>
+    <p class="sub">Tres pasos, sin complicarte la vida.</p>
+    <div class="grid">
+      <div class="card paso"><div class="num">1</div><h3>Nos escribes</h3><p>Nos cuentas de tu negocio por WhatsApp y te damos el precio.</p></div>
+      <div class="card paso"><div class="num">2</div><h3>Lo construimos</h3><p>Con tu anticipo, hacemos tu página y te la mostramos para que pidas cambios.</p></div>
+      <div class="card paso"><div class="num">3</div><h3>La publicamos</h3><p>Pagas el resto, la publicamos y listo: tu negocio ya está en internet.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap" style="max-width:700px;">
+    <h2>Preguntas frecuentes</h2>
+    <p class="sub">Lo que más nos preguntan.</p>
+    <details><summary>¿Cuánto tardan en entregar mi página?</summary><p>Normalmente de 2 a 5 días, dependiendo de qué tan rápido nos mandes tus fotos y datos.</p></details>
+    <details><summary>¿Tengo que pagar mensualidad?</summary><p>No es obligatoria. La página queda publicada. El mantenimiento mensual es opcional, para cuando quieras cambiar precios, fotos u horarios sin batallar.</p></details>
+    <details><summary>¿Qué necesito para empezar?</summary><p>Solo el nombre de tu negocio, tu menú o servicios con precios, tus horarios, tu ubicación y algunas fotos. Si no tienes fotos buenas, te ayudamos con lo que haya.</p></details>
+    <details><summary>¿Cómo se paga?</summary><p>Por transferencia o depósito. La mitad para empezar y la otra mitad cuando estés conforme con tu página.</p></details>
+    <details><summary>¿Se ve bien en celular?</summary><p>Sí, todas nuestras páginas están pensadas primero para celular, que es donde la mayoría de tus clientes te va a ver.</p></details>
+  </div>
+</section>
+
+<section class="contacto" id="contacto">
+  <div class="wrap">
+    <h2>Pongamos tu negocio en internet</h2>
+    <p class="sub">Escríbenos y te respondemos con una cotización sin compromiso.</p>
+    <a class="btn verde" href="https://wa.me/523317183825?text=Hola,%20quiero%20cotizar%20una%20p%C3%A1gina%20para%20mi%20negocio" target="_blank">📲 Escribir por WhatsApp</a>
+    <p class="datos">📞 33 1718 3825 · Jalisco, México</p>
+  </div>
+</section>
+
+<footer>© 2026 Codex Gómez Studio · Todos los derechos reservados</footer>
+
+<a class="flotante" href="https://wa.me/523317183825?text=Hola,%20quiero%20cotizar%20una%20p%C3%A1gina%20para%20mi%20negocio" target="_blank">💬 WhatsApp</a>
+
+</body>
+</html>
